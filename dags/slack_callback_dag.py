@@ -20,7 +20,6 @@ default_args = {
     "retries": 0,
     "retry_delay": timedelta(seconds=5),
     # Callbacks set in default_args will apply to all tasks unless overridden at the task-level
-    # Using the partial module allows you to specify different channels for different alerts
     "on_success_callback": slack_callback_functions.success_callback,
     "on_failure_callback": slack_callback_functions.failure_callback,
     "on_retry_callback": slack_callback_functions.retry_callback,

@@ -1,6 +1,6 @@
 # Airflow Callbacks
 
-Showcasing several ways to implement Airflow callbacks and notifications.
+Showcasing several ways to implement Airflow callbacks and notifications via Slack.
 
 ## Description
 
