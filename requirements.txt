@@ -1,0 +1,2 @@
+apache-airflow-providers-slack
+apache-airflow-providers-http
