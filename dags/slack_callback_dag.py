@@ -1,18 +1,17 @@
-import datetime
-from datetime import timedelta
-
-from airflow import DAG
-from airflow.operators.bash import BashOperator
-from airflow.operators.dummy import DummyOperator
-from airflow.operators.python import PythonOperator
-from include import slack_callback_functions
-
 """
 Example DAG to showcase the various callbacks in Airflow.
 
 Follow Option #2 outlined here https://medium.com/datareply/integrating-slack-alerts-in-airflow-c9dcd155105
 in order to set up Slack HTTP webhook
 """
+
+import datetime
+from datetime import timedelta
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from airflow.operators.dummy import DummyOperator
+from airflow.operators.python import PythonOperator
+from include import slack_callback_functions
 
 default_args = {
     "owner": "airflow",
@@ -33,6 +32,7 @@ with DAG(
         # sla_miss only applies to scheduled DAG runs, it does not work for manually triggered runs
         # If a DAG is running for the first time and sla is missed, sla_miss will not fire on that first run
         sla_miss_callback=slack_callback_functions.sla_miss_callback,
+        dag_md=__doc__,
         catchup=False,
 ) as dag:
     # This task uses on_execute_callback to send a notification when the task begins

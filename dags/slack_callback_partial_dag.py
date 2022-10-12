@@ -1,3 +1,10 @@
+"""
+Example DAG to showcase the various callbacks in Airflow.
+
+Follow Option #2 outlined here https://medium.com/datareply/integrating-slack-alerts-in-airflow-c9dcd155105
+in order to set up Slack HTTP webhook
+"""
+
 import datetime
 from datetime import timedelta
 from functools import partial
@@ -7,13 +14,6 @@ from airflow.operators.bash import BashOperator
 from airflow.operators.dummy import DummyOperator
 from airflow.operators.python import PythonOperator
 from include import slack_callback_functions_with_partial
-
-"""
-Example DAG to showcase the various callbacks in Airflow.
-
-Follow Option #2 outlined here https://medium.com/datareply/integrating-slack-alerts-in-airflow-c9dcd155105
-in order to set up Slack HTTP webhook
-"""
 
 default_args = {
     "owner": "airflow",
@@ -48,6 +48,7 @@ with DAG(
         http_conn_id="slack_callbacks_partial",
     ),
     catchup=False,
+    doc_md=__doc__
 ) as dag:
     # This task uses on_execute_callback to send a notification when the task begins
     dummy_trigger = DummyOperator(
