@@ -32,7 +32,7 @@ with DAG(
         # sla_miss only applies to scheduled DAG runs, it does not work for manually triggered runs
         # If a DAG is running for the first time and sla is missed, sla_miss will not fire on that first run
         sla_miss_callback=slack_callback_functions.sla_miss_callback,
-        dag_md=__doc__,
+        doc_md=__doc__,
         catchup=False,
 ) as dag:
     # This task uses on_execute_callback to send a notification when the task begins
