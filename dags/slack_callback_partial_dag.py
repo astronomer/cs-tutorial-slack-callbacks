@@ -1,4 +1,6 @@
 """
+### Callbacks with Slack
+
 Example DAG to showcase the various callbacks in Airflow.
 
 Follow Option #2 outlined here https://medium.com/datareply/integrating-slack-alerts-in-airflow-c9dcd155105

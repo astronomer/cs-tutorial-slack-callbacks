@@ -1,5 +1,7 @@
 """
-Example DAG to showcase the various callbacks in Airflow.
+### Slack Callbacks
+
+Example DAG to showcase the various callbacks in Airflow. Shows how to send success and failure notifications using custom callbacks.
 
 Follow Option #2 outlined here https://medium.com/datareply/integrating-slack-alerts-in-airflow-c9dcd155105
 in order to set up Slack HTTP webhook
